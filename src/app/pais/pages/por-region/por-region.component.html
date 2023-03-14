@@ -1,1 +1,59 @@
-<p>por-region works!</p>
+<div class="animate__animated animate__fadeIn animate__faster">
+    <h3> por región <small> {{regionActiva | titlecase}}</small></h3>
+    <hr>
+    <h5> seleccione la region </h5>
+    <!-- diferentes maneras de gestionar las clases -->
+    <div class="row mt-2">
+    <!--  <div class="col">
+            <button 
+                class="btn btn-outline-primary"
+                [class.abc-primary]="region === regionActiva"
+                *ngFor="let region of regiones"
+                (click)="activarRegion(region)"
+            >
+                {{region}}
+            </button>
+        </div> -->
+    <!--  <div class="col">
+            <button 
+                class="btn btn-outline-primary"
+                [ngClass]="{
+                    'btn-primary': regionActiva === region,
+                    'btn-outline-primary': regionActiva !== region
+                }"
+                *ngFor="let region of regiones"
+                (click)="activarRegion(region)"
+            >
+                {{region}}
+            </button>
+        </div> -->
+    <!--  <div class="col">
+            <button 
+                *ngFor="let region of regiones"
+                [class]="(region === regionActiva) ? 'btn btn-primary' : 'btn btn-outline-primary'"
+                (click)="activarRegion(region)"
+            >
+                {{region}}
+            </button>
+        </div> -->
+        <div class="col">
+            <button 
+                *ngFor="let region of regiones"
+                [class]="getClassCss(region)"
+                (click)="activarRegion(region)"
+            >
+                {{region | titlecase}}
+            </button>
+        </div>
+    </div>
+    <div 
+        class="row animate__animated animate__fadeInLeft"
+        *ngIf="paises">
+        
+        <div class="col ">
+            <hr>
+            <app-pais-tabla [paises]="paises">{{paises | json}}</app-pais-tabla>
+        </div>
+    
+    </div>
+</div>

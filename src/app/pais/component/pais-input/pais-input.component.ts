@@ -37,8 +37,7 @@ export default class PaisInputComponent implements OnInit {
 
   }
 
-  teclaPress(){
+  teclaPress(){  
     this.debouncer.next(this.termino);
-    
   }
 }
